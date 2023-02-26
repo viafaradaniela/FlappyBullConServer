@@ -27,4 +27,4 @@ expressApp.post('/user-data', (req, res) => {
     userData = req.body;
     res.send({Data: `User data is: ${userData}`})
     console.log(userData);
-})
+});
