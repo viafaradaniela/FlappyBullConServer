@@ -1,5 +1,5 @@
 const NGROK = `${window.location.hostname}`;
-console.log('192.168.10.20', NGROK);
+console.log('172.30.213.141', NGROK);
 let socket = io(NGROK, { path: '/real-time' });
 const anchoescenario = 1280;
 const largoescenario = 720;
@@ -7,6 +7,7 @@ let pantallas = 1;
 let canvas;
 let boton;
 let boton2;
+let messages = "A";
 let user = {};
 
 
@@ -86,6 +87,10 @@ function UserEmail() {
         break;
     }
   }
+
+  socket.emit('Hola',(messages)=>{
+    console.log(messages);;
+  })
   
   function windowResized(){
     if (windowWidth < anchoescenario) {
@@ -131,5 +136,8 @@ function UserEmail() {
         body: JSON.stringify(user)
     }
     await fetch('/user-data', data);
+
 }
-  
+
+
+

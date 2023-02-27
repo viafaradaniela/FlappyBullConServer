@@ -1,6 +1,6 @@
 const NGROK = `${window.location.hostname}`;
 let socket = io(NGROK, { path: '/real-time' });
-console.log('192.168.10.20', NGROK);
+console.log('172.30.213.141', NGROK);
 
 const anchoescenario = 1280;
 const largoescenario = 720;
@@ -187,5 +187,7 @@ function Tubo() {
     ]
   }
 }
-
+socket.on('display-Hola', messages => {
+  console.log(messages)
+})
 
